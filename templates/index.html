@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Home - House Price Predictor{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Predict Your Home Value with <span class="gradient-text">AI-Powered Accuracy</span></h1>
+            <p class="hero-description">Leverage advanced machine learning to estimate house prices based on property features, location details, and market indicators.</p>
+            <div class="hero-buttons">
+                <a href="/predictdata" class="btn btn-primary">Start Prediction</a>
+                <a href="/about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="stats-card">
+                <div class="stat-item">
+                    <span class="stat-number">96%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">Predictions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Instant</span>
+                    <span class="stat-label">Results</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Why Choose HomeValue AI?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Precise Valuations</h3>
+                <p>Our ML model analyzes multiple property features to provide accurate price predictions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Results</h3>
+                <p>Get property valuations in seconds with our optimized prediction engine.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Data-Driven</h3>
+                <p>Built on comprehensive real estate data and validated market metrics.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your property data is processed securely and never stored permanently.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Value Your Property?</h2>
+            <p>Enter property details and get instant price predictions</p>
+            <a href="/predictdata" class="btn btn-primary">Get Started Now</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

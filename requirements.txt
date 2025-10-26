@@ -1,0 +1,14 @@
+# external requirements
+click
+Sphinx
+flake8
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+dill
+flask
+
+# local package
+-e .

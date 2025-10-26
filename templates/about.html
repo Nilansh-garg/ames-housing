@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}About - House Price Predictor{% endblock %}
+
+{% block content %}
+<section class="about-section">
+    <div class="container">
+        <div class="about-header">
+            <h1>About HomeValue AI</h1>
+            <p class="subtitle">Understanding property values through machine learning</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-card">
+                <h2>🎯 Our Mission</h2>
+                <p>HomeValue AI aims to help homeowners, buyers, and real estate professionals make informed decisions about property values. By leveraging advanced machine learning algorithms, we provide accurate price predictions that can guide real estate transactions and investment strategies.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>🔬 How It Works</h2>
+                <p>Our prediction model is trained on comprehensive real estate data, analyzing various property features including:</p>
+                <ul class="feature-list">
+                    <li><strong>Overall Quality:</strong> Material and finish quality rating</li>
+                    <li><strong>Living Area:</strong> Above grade living space in square feet</li>
+                    <li><strong>Garage Features:</strong> Size and capacity</li>
+                    <li><strong>Basement Details:</strong> Total and finished basement area</li>
+                    <li><strong>Floor Space:</strong> First floor and total lot area</li>
+                    <li><strong>Bathrooms:</strong> Number of full bathrooms</li>
+                    <li><strong>Property Age:</strong> Years since last remodel</li>
+                </ul>
+                <p>These factors are processed through a trained machine learning model to predict house prices with high accuracy.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>📊 The Technology</h2>
+                <p>HomeValue AI is built using cutting-edge technologies:</p>
+                <ul class="feature-list">
+                    <li><strong>Flask:</strong> Python web framework for the application backend</li>
+                    <li><strong>Scikit-learn:</strong> Machine learning library for price predictions</li>
+                    <li><strong>Pandas & NumPy:</strong> Data processing and numerical analysis</li>
+                    <li><strong>StandardScaler:</strong> Feature normalization for accurate predictions</li>
+                    <li><strong>Custom Pipeline:</strong> Streamlined prediction workflow</li>
+                </ul>
+            </div>
+
+            <div class="about-card">
+                <h2>🔐 Privacy & Ethics</h2>
+                <p>We take privacy seriously. All predictions are processed in real-time and no personal or property data is stored permanently. Our model is designed to provide insights while respecting individual privacy and maintaining data security.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>💡 Use Cases</h2>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <strong>Homeowners</strong>
+                        <p>Estimate current property value for refinancing or selling decisions</p>
+                    </div>
+                    <div class="use-case">
+                        <strong>Home Buyers</strong>
+                        <p>Evaluate if a listing price is fair based on property features</p>
+                    </div>
+                    <div class="use-case">
+                        <strong>Real Estate Agents</strong>
+                        <p>Quick valuations to guide clients and pricing strategies</p>
+                    </div>
+                    <div class="use-case">
+                        <strong>Investors</strong>
+                        <p>Assess investment opportunities and potential ROI</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-card">
+                <h2>📈 Model Performance</h2>
+                <p>Our machine learning model has been trained on thousands of real estate transactions and achieves high accuracy in price predictions. The model continuously considers multiple property attributes to provide reliable valuations that reflect current market conditions.</p>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <h2>Ready to Try It Out?</h2>
+            <p>Experience the power of predictive analytics in real estate</p>
+            <a href="/predictdata" class="btn btn-primary">Start Predicting</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
