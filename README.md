@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Ares housing
 ==============================
 
@@ -55,3 +56,7 @@ Project Organization
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+=======
+# ames-housing
+ This is a project for predicting the sale price  of the house
+>>>>>>> 539c99cd1c201aa6390150e7aacdb8c4c06b9bc4

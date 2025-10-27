@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Predict - House Price Predictor{% endblock %}
+{% block title %}Predict - HomeValue AI{% endblock %}
 
 {% block content %}
 <section class="predict-section">
     <div class="container">
         <div class="predict-header">
             <h1>House Price Prediction</h1>
-            <p>Fill in the property details below to predict its market value</p>
+            <p>Fill in the property details below to predict its market value using our Random Forest model</p>
         </div>
 
         {% if results %}
@@ -15,21 +15,21 @@
             <div class="result-header">
                 <div class="success-icon">✓</div>
                 <h2>Prediction Complete</h2>
-                <p>Here's the predicted house price based on the provided information</p>
+                <p>Here's the predicted house price based on the provided property information</p>
             </div>
 
             <div class="result-card">
                 <div class="price-display">
                     <span class="price-label">Predicted House Price</span>
-                    <span class="price-value">${{ "{:,.2f}".format(results) }}</span>
+                    <span class="price-value">${{ results }}</span>
                 </div>
 
                 <div class="price-interpretation">
-                    {% if results >= 300000 %}
+                    {% if results|float >= 300000 %}
                         <p class="interpretation excellent">🌟 Premium property value!</p>
-                    {% elif results >= 200000 %}
+                    {% elif results|float >= 200000 %}
                         <p class="interpretation good">👍 Above average market value!</p>
-                    {% elif results >= 100000 %}
+                    {% elif results|float >= 100000 %}
                         <p class="interpretation average">📊 Average market value.</p>
                     {% else %}
                         <p class="interpretation budget">💰 Budget-friendly property.</p>
@@ -46,93 +46,93 @@
 
         <form action="/predictdata" method="POST" class="prediction-form" id="predictionForm">
             <div class="form-section">
-                <h3>Property Quality & Size</h3>
+                <h3>🏗️ Property Quality & Living Area</h3>
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="Overall_Qual">Overall Quality (1-10)</label>
                         <input type="number" name="Overall_Qual" id="Overall_Qual" min="1" max="10" required 
-                               placeholder="Rate overall material and finish" title="Overall material and finish quality">
+                               placeholder="e.g., 7" title="Overall material and finish quality of the house">
                         <small>Rate from 1 (Poor) to 10 (Excellent)</small>
                     </div>
 
                     <div class="form-group">
                         <label for="Gr_Liv_Area">Above Grade Living Area (sq ft)</label>
                         <input type="number" name="Gr_Liv_Area" id="Gr_Liv_Area" min="0" required 
-                               placeholder="e.g., 1500">
+                               placeholder="e.g., 1500" title="Living area above ground level">
                         <small>Ground living area in square feet</small>
                     </div>
 
                     <div class="form-group">
                         <label for="First_Flr_SF">First Floor Area (sq ft)</label>
-                        <input type="number" name="First_Flr_SF" id="First_Flr_SF" min="0" step="0.01" required 
-                               placeholder="e.g., 800">
+                        <input type="number" name="First_Flr_SF" id="First_Flr_SF" min="0" required 
+                               placeholder="e.g., 800" title="Square footage of first floor">
                         <small>First floor square feet</small>
                     </div>
 
                     <div class="form-group">
                         <label for="Lot_Area">Lot Area (sq ft)</label>
-                        <input type="number" name="Lot_Area" id="Lot_Area" min="0" step="0.01" required 
-                               placeholder="e.g., 8000">
+                        <input type="number" name="Lot_Area" id="Lot_Area" min="0" required 
+                               placeholder="e.g., 8000" title="Total lot size">
                         <small>Lot size in square feet</small>
                     </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3>Garage Details</h3>
+                <h3>🚗 Garage Details</h3>
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="Garage_Cars">Garage Size (Cars)</label>
-                        <input type="number" name="Garage_Cars" id="Garage_Cars" min="0" max="5" required 
-                               placeholder="e.g., 2">
+                        <input type="number" name="Garage_Cars" id="Garage_Cars" min="0" max="5" step="0.5" required 
+                               placeholder="e.g., 2" title="Number of cars garage can hold">
                         <small>Number of cars that fit</small>
                     </div>
 
                     <div class="form-group">
                         <label for="Garage_Area">Garage Area (sq ft)</label>
                         <input type="number" name="Garage_Area" id="Garage_Area" min="0" required 
-                               placeholder="e.g., 400">
+                               placeholder="e.g., 400" title="Total garage square footage">
                         <small>Garage size in square feet</small>
                     </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h3>Basement & Additional Features</h3>
+                <h3>🏘️ Basement & Additional Features</h3>
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="Total_Bsmt_SF">Total Basement Area (sq ft)</label>
-                        <input type="number" name="Total_Bsmt_SF" id="Total_Bsmt_SF" min="0" step="0.01" required 
-                               placeholder="e.g., 900">
+                        <input type="number" name="Total_Bsmt_SF" id="Total_Bsmt_SF" min="0" required 
+                               placeholder="e.g., 900" title="Total basement square footage">
                         <small>Total basement square footage</small>
                     </div>
 
                     <div class="form-group">
                         <label for="BsmtFin_SF_1">Finished Basement Area (sq ft)</label>
-                        <input type="number" name="BsmtFin_SF_1" id="BsmtFin_SF_1" min="0" step="0.01" required 
-                               placeholder="e.g., 500">
+                        <input type="number" name="BsmtFin_SF_1" id="BsmtFin_SF_1" min="0" required 
+                               placeholder="e.g., 500" title="Finished basement area (Type 1)">
                         <small>Type 1 finished square feet</small>
                     </div>
 
                     <div class="form-group">
                         <label for="Full_Bath">Full Bathrooms</label>
                         <input type="number" name="Full_Bath" id="Full_Bath" min="0" max="10" step="1" required 
-                               placeholder="e.g., 2">
+                               placeholder="e.g., 2" title="Number of full bathrooms above grade">
                         <small>Number of full bathrooms</small>
                     </div>
 
                     <div class="form-group">
                         <label for="year_since_remod">Years Since Remodel</label>
-                        <input type="number" name="year_since_remod" id="year_since_remod" min="0" step="0.01" required 
-                               placeholder="e.g., 5">
+                        <input type="number" name="year_since_remod" id="year_since_remod" min="0" required 
+                               placeholder="e.g., 5" title="Years elapsed since last remodel">
                         <small>Years since last renovation</small>
                     </div>
                 </div>
             </div>
 
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary btn-large">Predict House Price</button>
-                <button type="reset" class="btn btn-secondary btn-large">Reset Form</button>
+                <button type="submit" class="btn btn-primary btn-large">🔮 Predict House Price</button>
+                <button type="reset" class="btn btn-secondary btn-large">🔄 Reset Form</button>
             </div>
         </form>
     </div>

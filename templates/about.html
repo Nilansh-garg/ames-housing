@@ -1,85 +1,120 @@
 {% extends "base.html" %}
 
-{% block title %}About - House Price Predictor{% endblock %}
+{% block title %}About - HomeValue AI{% endblock %}
 
 {% block content %}
 <section class="about-section">
     <div class="container">
         <div class="about-header">
             <h1>About HomeValue AI</h1>
-            <p class="subtitle">Understanding property values through machine learning</p>
+            <p class="subtitle">Understanding property values through Random Forest machine learning</p>
         </div>
 
         <div class="about-content">
             <div class="about-card">
                 <h2>🎯 Our Mission</h2>
-                <p>HomeValue AI aims to help homeowners, buyers, and real estate professionals make informed decisions about property values. By leveraging advanced machine learning algorithms, we provide accurate price predictions that can guide real estate transactions and investment strategies.</p>
+                <p>HomeValue AI aims to democratize real estate valuation by making advanced machine learning accessible to everyone. Whether you're a homeowner, buyer, or real estate professional, our tool helps you make informed decisions about property values using cutting-edge predictive analytics.</p>
+                <p>By leveraging Random Forest algorithms and comprehensive feature engineering, we provide accurate price predictions that can guide real estate transactions, investment strategies, and financial planning decisions.</p>
             </div>
 
             <div class="about-card">
                 <h2>🔬 How It Works</h2>
-                <p>Our prediction model is trained on comprehensive real estate data, analyzing various property features including:</p>
+                <p>Our prediction model is powered by a <strong>Random Forest algorithm</strong>, trained on comprehensive real estate data. The model analyzes 10 critical property features to generate accurate price predictions:</p>
                 <ul class="feature-list">
-                    <li><strong>Overall Quality:</strong> Material and finish quality rating</li>
-                    <li><strong>Living Area:</strong> Above grade living space in square feet</li>
-                    <li><strong>Garage Features:</strong> Size and capacity</li>
-                    <li><strong>Basement Details:</strong> Total and finished basement area</li>
-                    <li><strong>Floor Space:</strong> First floor and total lot area</li>
-                    <li><strong>Bathrooms:</strong> Number of full bathrooms</li>
-                    <li><strong>Property Age:</strong> Years since last remodel</li>
+                    <li><strong>Overall Quality (1-10):</strong> Material and finish quality rating of the property</li>
+                    <li><strong>Above Grade Living Area:</strong> Living space above ground level in square feet</li>
+                    <li><strong>Garage Capacity:</strong> Number of cars the garage can accommodate</li>
+                    <li><strong>Garage Area:</strong> Total garage square footage</li>
+                    <li><strong>First Floor Area:</strong> Square footage of the first floor</li>
+                    <li><strong>Total Basement Area:</strong> Complete basement square footage</li>
+                    <li><strong>Lot Area:</strong> Total property lot size</li>
+                    <li><strong>Finished Basement:</strong> Type 1 finished basement area</li>
+                    <li><strong>Full Bathrooms:</strong> Number of complete bathrooms above grade</li>
+                    <li><strong>Years Since Remodel:</strong> Time elapsed since last major renovation</li>
                 </ul>
-                <p>These factors are processed through a trained machine learning model to predict house prices with high accuracy.</p>
+                <p>These features undergo advanced preprocessing including log transformations, scaling, and imputation before being fed into our trained Random Forest model for optimal prediction accuracy.</p>
             </div>
 
             <div class="about-card">
-                <h2>📊 The Technology</h2>
-                <p>HomeValue AI is built using cutting-edge technologies:</p>
+                <h2>🤖 The Technology Stack</h2>
+                <p>HomeValue AI is built using industry-standard technologies and best practices:</p>
                 <ul class="feature-list">
-                    <li><strong>Flask:</strong> Python web framework for the application backend</li>
-                    <li><strong>Scikit-learn:</strong> Machine learning library for price predictions</li>
-                    <li><strong>Pandas & NumPy:</strong> Data processing and numerical analysis</li>
-                    <li><strong>StandardScaler:</strong> Feature normalization for accurate predictions</li>
-                    <li><strong>Custom Pipeline:</strong> Streamlined prediction workflow</li>
+                    <li><strong>Flask:</strong> Lightweight Python web framework powering the backend API</li>
+                    <li><strong>Random Forest:</strong> Ensemble machine learning algorithm for robust predictions</li>
+                    <li><strong>Scikit-learn:</strong> Professional-grade ML library for model training and deployment</li>
+                    <li><strong>Pandas & NumPy:</strong> Advanced data processing and numerical analysis</li>
+                    <li><strong>Custom Pipeline:</strong> Preprocessing pipeline with StandardScaler for feature normalization</li>
+                    <li><strong>Pickle Serialization:</strong> Efficient model and preprocessor storage</li>
+                    <li><strong>Custom Exception Handling:</strong> Robust error management for production reliability</li>
                 </ul>
+                <p>The entire prediction pipeline is encapsulated in <code>PredictPipeline</code> and <code>CustomData</code> classes, ensuring clean separation of concerns and maintainable code architecture.</p>
             </div>
 
             <div class="about-card">
-                <h2>🔐 Privacy & Ethics</h2>
-                <p>We take privacy seriously. All predictions are processed in real-time and no personal or property data is stored permanently. Our model is designed to provide insights while respecting individual privacy and maintaining data security.</p>
+                <h2>🔐 Privacy & Data Security</h2>
+                <p>We take your privacy seriously. All property data you submit is:</p>
+                <ul class="feature-list">
+                    <li><strong>Processed in Real-Time:</strong> Your data is used immediately for predictions</li>
+                    <li><strong>Never Stored Permanently:</strong> No personal or property information is saved to databases</li>
+                    <li><strong>Secure Transmission:</strong> All data is transmitted securely through Flask's request handling</li>
+                    <li><strong>Logged Appropriately:</strong> Only prediction events are logged, not your actual data</li>
+                </ul>
+                <p>Our model is designed to provide insights while respecting individual privacy and maintaining the highest standards of data security.</p>
             </div>
 
             <div class="about-card">
                 <h2>💡 Use Cases</h2>
                 <div class="use-cases">
                     <div class="use-case">
-                        <strong>Homeowners</strong>
-                        <p>Estimate current property value for refinancing or selling decisions</p>
+                        <strong>🏡 Homeowners</strong>
+                        <p>Estimate current property value for refinancing, home equity loans, or selling decisions. Understand how renovations impact value.</p>
                     </div>
                     <div class="use-case">
-                        <strong>Home Buyers</strong>
-                        <p>Evaluate if a listing price is fair based on property features</p>
+                        <strong>🔍 Home Buyers</strong>
+                        <p>Evaluate if a listing price is fair based on property features. Make data-driven offers with confidence.</p>
                     </div>
                     <div class="use-case">
-                        <strong>Real Estate Agents</strong>
-                        <p>Quick valuations to guide clients and pricing strategies</p>
+                        <strong>🏢 Real Estate Agents</strong>
+                        <p>Quick valuations to guide clients and develop competitive pricing strategies based on market data.</p>
                     </div>
                     <div class="use-case">
-                        <strong>Investors</strong>
-                        <p>Assess investment opportunities and potential ROI</p>
+                        <strong>💼 Investors</strong>
+                        <p>Assess investment opportunities, calculate potential ROI, and identify undervalued properties in the market.</p>
                     </div>
                 </div>
             </div>
 
             <div class="about-card">
                 <h2>📈 Model Performance</h2>
-                <p>Our machine learning model has been trained on thousands of real estate transactions and achieves high accuracy in price predictions. The model continuously considers multiple property attributes to provide reliable valuations that reflect current market conditions.</p>
+                <p>Our Random Forest model has been meticulously trained on thousands of real estate transactions and achieves high accuracy in price predictions. The ensemble nature of Random Forest helps:</p>
+                <ul class="feature-list">
+                    <li><strong>Reduce Overfitting:</strong> Multiple decision trees prevent memorization of training data</li>
+                    <li><strong>Handle Non-linearity:</strong> Captures complex relationships between features</li>
+                    <li><strong>Robust Predictions:</strong> Less sensitive to outliers and noisy data</li>
+                    <li><strong>Feature Importance:</strong> Identifies which property attributes matter most</li>
+                </ul>
+                <p>The model continuously considers all 10 property attributes with their interactions to provide reliable valuations that reflect current market conditions and property characteristics.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>⚙️ Technical Implementation</h2>
+                <p>The application follows production-grade software engineering practices:</p>
+                <ul class="feature-list">
+                    <li><strong>Modular Architecture:</strong> Separate modules for prediction, exception handling, and logging</li>
+                    <li><strong>Error Handling:</strong> CustomException class for detailed error tracking</li>
+                    <li><strong>Logging System:</strong> Comprehensive logging for monitoring and debugging</li>
+                    <li><strong>Type Conversion:</strong> Robust handling of user input with proper type casting</li>
+                    <li><strong>DataFrame Processing:</strong> Proper column naming matching preprocessor expectations</li>
+                    <li><strong>Pickle Loading:</strong> Efficient model and preprocessor deserialization</li>
+                </ul>
+                <p>The preprocessing pipeline handles log transformations, scaling, and imputation automatically, ensuring your raw input is properly transformed before prediction.</p>
             </div>
         </div>
 
         <div class="cta-box">
-            <h2>Ready to Try It Out?</h2>
-            <p>Experience the power of predictive analytics in real estate</p>
-            <a href="/predictdata" class="btn btn-primary">Start Predicting</a>
+            <h2>Ready to Experience AI-Powered Valuations?</h2>
+            <p>Try our Random Forest model and get instant property price predictions</p>
+            <a href="/predictdata" class="btn btn-primary">Start Predicting Now</a>
         </div>
     </div>
 </section>

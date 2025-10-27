@@ -11,17 +11,17 @@ class PredictPipeline:
         pass
 
     def predict(self,features):
-        
+        # logging.info('user data is going for transformation')
         try:
-            model_path='../../models/model.pkl'
-            preprocessor_path='../../models/preprocessor.pkl'
+            model_path='models/model.pkl'
+            preprocessor_path='models/preprocessor.pkl'
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
             
             # The preprocessor handles all transformation (log, scaling, imputation)
             data_scaled=preprocessor.transform(features) 
             
-            preds=model.predict(data_scaled)
+            preds= (model.predict(data_scaled),2)
             logging.info("data is predicted")
             return preds
         
@@ -33,16 +33,16 @@ class PredictPipeline:
 
 class CustomData:
     def __init__(self,
-                 Overall_Qual: float,
-                 Gr_Liv_Area: float,
-                 Garage_Cars: float,
-                 Garage_Area: float,
-                 First_Flr_SF: float,
-                 Total_Bsmt_SF: float,
-                 Lot_Area: float,
-                 BsmtFin_SF_1: float,
-                 Full_Bath: float,
-                 year_since_remod: float):
+        Overall_Qual: int,
+        Gr_Liv_Area: int,
+        Garage_Cars: float,
+        Garage_Area: float,
+        First_Flr_SF: int,
+        Total_Bsmt_SF: float,
+        Lot_Area: int,
+        BsmtFin_SF_1: float,
+        Full_Bath: int,
+        year_since_remod: int):
 
         # Initializing instance attributes with the RAW, UNTRANSFORMED values.
         # CRITICAL FIX: Removed np.log1p() calls here. The preprocessor handles logging.
@@ -72,6 +72,8 @@ class CustomData:
                 "Full Bath": [self.Full_Bath],
                 "year_since_remod": [self.year_since_remod]
             }
+            
+            logging.info("the data frame is created")
 
             return pd.DataFrame(custom_data_input_dict)
 
